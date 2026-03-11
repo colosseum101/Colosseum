@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colosseum — Leadership Hiring: Tech &amp; AI</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --navy: #001489;
+    --green: #3EB929;
+    --green2: #44D62C;
+    --bg-green: #EAF3EB;
+    --white: #ffffff;
+    --text-dark: #0d0d1a;
+    --text-mid: #2e2e4a;
+    --text-muted: #6b6b8a;
+    --border: #dde3ef;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #eef0f5;
+    color: var(--text-dark);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 520px;
+    margin: 0 auto;
+    background: var(--white);
+    box-shadow: 0 0 40px rgba(0,0,0,0.12);
+    min-height: 100vh;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    padding: 36px 28px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: rgba(62,185,41,0.09);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -50px; left: -50px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: rgba(68,214,44,0.05);
+    pointer-events: none;
+  }
+
+  .hero-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    position: relative;
+    z-index: 1;
+  }
+  .logo-circle {
+    width: 36px; height: 36px;
+    border: 2.5px solid var(--green);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px; font-weight: 700;
+    color: var(--green);
+    flex-shrink: 0;
+  }
+  .logo-name {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  .logo-name span { color: var(--green); }
+
+  .hero h1 {
+    font-size: clamp(36px, 9vw, 48px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+    margin-bottom: 16px;
+    position: relative; z-index: 1;
+  }
+  .hero h1 .g { color: var(--green); }
+
+  .hero-sub {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+    position: relative; z-index: 1;
+  }
+  .hero-sub strong {
+    color: rgba(255,255,255,0.9);
+    font-weight: 600;
+    display: block;
+    margin-top: 4px;
+  }
+
+  /* QUOTE BAND */
+  .quote-band {
+    background: var(--bg-green);
+    padding: 22px 28px;
+    border-left: 5px solid var(--green);
+  }
+  .quote-band p {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--text-mid);
+  }
+  .quote-band em {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--navy);
+  }
+
+  /* SECTION LABEL */
+  .sec-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 28px 28px 16px;
+  }
+  .sec-label span {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .sec-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* PARTNER BLOCK */
+  .partner {
+    padding: 0 28px 32px;
+  }
+
+  .p-head {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+  .avatar {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px; font-weight: 700;
+    color: var(--white);
+    flex-shrink: 0;
+    letter-spacing: -0.5px;
+  }
+  .av-pv { background: #5a4fcf; }
+  .av-rj { background: var(--navy); }
+
+  .p-info { flex: 1; }
+  .p-name {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.8px;
+    line-height: 1.1;
+  }
+  .p-role {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 12px 0 14px;
+  }
+  .tag {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--navy);
+    background: var(--bg-green);
+    border: 1px solid rgba(0,20,137,0.13);
+    border-radius: 4px;
+    padding: 3px 9px;
+  }
+
+  .pquote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: var(--text-mid);
+    padding: 12px 14px;
+    border-left: 3px solid var(--green);
+    background: var(--bg-green);
+    border-radius: 0 6px 6px 0;
+    margin-bottom: 18px;
+  }
+
+  /* STATS */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: var(--navy);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+  .stat {
+    padding: 16px 8px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-n {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--green);
+    letter-spacing: -0.5px;
+    line-height: 1;
+  }
+  .stat-n sup {
+    font-size: 14px;
+    color: var(--green2);
+    vertical-align: super;
+    line-height: 0;
+  }
+  .stat-l {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-top: 5px;
+    line-height: 1.35;
+  }
+
+  /* BULLETS */
+  .blist { list-style: none; }
+  .blist li {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-mid);
+    padding: 7px 0 7px 18px;
+    position: relative;
+    border-bottom: 1px solid #f0f2f7;
+  }
+  .blist li:last-child { border-bottom: none; }
+  .blist li::before {
+    content: '▸';
+    position: absolute;
+    left: 0; top: 7px;
+    color: var(--green);
+    font-size: 11px;
+  }
+  .blist li strong { color: var(--navy); font-weight: 600; }
+
+  /* DIVIDER */
+  .divider {
+    height: 8px;
+    background: var(--bg-green);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* WHY SECTION */
+  .why-wrap { padding: 0 28px 28px; }
+  .why-sec-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 28px 0 16px;
+  }
+  .why-sec-label span {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .why-sec-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .why-card {
+    background: var(--bg-green);
+    border: 1px solid rgba(0,20,137,0.08);
+    border-radius: 10px;
+    padding: 16px 14px 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .why-num {
+    position: absolute;
+    top: 6px; right: 8px;
+    font-size: 36px;
+    font-weight: 800;
+    color: rgba(0,20,137,0.06);
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+  .why-icon { font-size: 20px; margin-bottom: 8px; display: block; }
+  .why-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .why-desc {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--navy);
+    padding: 32px 28px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .footer::before {
+    content: '';
+    position: absolute;
+    bottom: -40px; right: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(62,185,41,0.08);
+    pointer-events: none;
+  }
+  .footer h2 {
+    font-size: clamp(30px, 8vw, 40px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+  }
+  .footer h2 .g { color: var(--green); }
+  .footer-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+  .contact-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    position: relative; z-index: 1;
+  }
+  .c-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 7px;
+  }
+  .c-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .c-link {
+    display: block;
+    font-size: 12px;
+    color: var(--green);
+    text-decoration: none;
+    line-height: 1.7;
+    word-break: break-all;
+  }
+  .c-link:hover { color: var(--green2); }
+  .c-text {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 400px) {
+    .hero, .partner, .why-wrap, .footer { padding-left: 20px; padding-right: 20px; }
+    .quote-band { padding: 18px 20px; }
+    .sec-label { padding: 22px 20px 14px; }
+    .stat-n { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-logo">
+      <div class="logo-circle">C</div>
+      <div class="logo-name">COLOS<span>S</span>EUM</div>
+    </div>
+    <h1>Leadership<br><span class="g">Hiring</span> —<br>Tech &amp; AI.</h1>
+    <p class="hero-sub">
+      Two of India's most accomplished talent leaders have joined Colosseum.
+      <strong>This changes what's possible for your team.</strong>
+    </p>
+  </div>
+
+  <!-- PULL QUOTE -->
+  <div class="quote-band">
+    <p><em>Most search firms send you a shortlist.</em> Our partners have built the exact teams you're trying to hire for — at Amazon, Jupiter.money and Disney+ Hotstar.</p>
+  </div>
+
+  <!-- SECTION LABEL -->
+  <div class="sec-label"><span>Meet the Partners</span></div>
+
+  <!-- PRIYANKA -->
+  <div class="partner">
+    <div class="p-head">
+      <div class="avatar av-pv">PV</div>
+      <div class="p-info">
+        <div class="p-name">Priyanka Vashist</div>
+        <div class="p-role">Partner — Tech &amp; AI Leadership Hiring</div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag">Amazon · 15 Years</span>
+      <span class="tag">AI/ML</span>
+      <span class="tag">Devices</span>
+      <span class="tag">FinTech</span>
+      <span class="tag">Robotics</span>
+    </div>
+    <p class="pquote">"She didn't just recruit engineers at Amazon — she built the systems and standards that hired thousands of them."</p>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-n">700<sup>+</sup></div>
+        <div class="stat-l">Eng &amp; Product Roles Placed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">150<sup>+</sup></div>
+        <div class="stat-l">Leadership Hires Amazon L7 &amp; Above</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">98<sup>%</sup></div>
+        <div class="stat-l">Offer Acceptance Rate</div>
+      </div>
+    </div>
+    <ul class="blist">
+      <li><strong>Amazon hiring bar, applied to your search</strong> — led TA across AI/ML, Embedded Systems, Devices, FinTech &amp; Robotics globally</li>
+      <li>Built &amp; executed strategic workforce plans for <strong>120+ future-critical roles</strong> aligned to 3-year business goals</li>
+      <li>DEI hiring across India &amp; APAC — drove representation from <strong>14% → 32%</strong>; designed playbooks for PWD, LGBTQ+ &amp; Women in Tech</li>
+      <li>Managed <strong>27-member global TA team</strong> including first-line managers across India &amp; international locations</li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- RINKY -->
+  <div class="partner" style="padding-top: 24px;">
+    <div class="p-head">
+      <div class="avatar av-rj">RJ</div>
+      <div class="p-info">
+        <div class="p-name">Rinky Jain</div>
+        <div class="p-role">Partner — Tech &amp; AI Hiring · Fractional CHRO Services</div>
+      </div>
+    </div>
+    <div class="tags">
+      <span class="tag">Jupiter.money</span>
+      <span class="tag">Disney+ Hotstar</span>
+      <span class="tag">Amazon</span>
+    </div>
+    <p class="pquote">"She thinks like a founder, not a vendor. She has been the person accountable for the entire people function — from seed to Series C."</p>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-n">800<sup>+</sup></div>
+        <div class="stat-l">Team Scaled at Jupiter.money</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">200<sup>+</sup></div>
+        <div class="stat-l">Eng Team Built at Disney+ Hotstar</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">$2M</div>
+        <div class="stat-l">Annual Savings via Talent Strategy</div>
+      </div>
+    </div>
+    <ul class="blist">
+      <li>Joined Jupiter.money <strong>post-seed ($24Mn)</strong> as founding HR leader — scaled org to 800+ and built entire people function from scratch</li>
+      <li>Built Disney+ Hotstar's engineering &amp; product org <strong>from the ground up to 200+</strong> during India's biggest OTT tech transformation</li>
+      <li>Amplified Hotstar's employer brand by <strong>300%</strong> — via Tech Talks, Fireside Chats &amp; AI-driven talent engagement strategies</li>
+      <li>One of <strong>Amazon India's first 5 recruiters</strong> — built Amazon Development Centre's hiring engine from day zero</li>
+    </ul>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- WHY COLOSSEUM -->
+  <div class="why-wrap">
+    <div class="why-sec-label"><span>Why Colosseum is Different</span></div>
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="why-num">01</span>
+        <span class="why-icon">🎯</span>
+        <div class="why-title">Insider Domain Knowledge</div>
+        <div class="why-desc">Our partners have hired for the exact roles you're trying to fill — at Amazon, Jupiter.money &amp; Disney+ Hotstar. They know what great looks like, and what a bad hire costs.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-num">02</span>
+        <span class="why-icon">🧠</span>
+        <div class="why-title">Talent Strategy, Not Just Search</div>
+        <div class="why-desc">Org design, TA function builds, hiring frameworks for your next growth stage. We advise on how you hire — not just who.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-num">03</span>
+        <span class="why-icon">⚡</span>
+        <div class="why-title">AI-Powered &amp; Data-Driven</div>
+        <div class="why-desc">Structured scorecards, predictive analytics, AI-assisted sourcing. Every search is backed by intelligence — not just a database blast.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-num">04</span>
+        <span class="why-icon">🏛️</span>
+        <div class="why-title">Boutique Accountability</div>
+        <div class="why-desc">Partners personally lead every mandate. Your search is never handed to a junior. Full-stack: Tech + Non-Tech + Fractional CHRO.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER CTA -->
+  <div class="footer">
+    <h2>Let's Build<br><span class="g">Your Team.</span></h2>
+    <p class="footer-sub">Whether you're hiring a CTO, scaling an engineering org, or rethinking your talent strategy — let's talk.</p>
+    <div class="contact-row">
+      <div>
+        <div class="c-label">Contact</div>
+        <div class="c-name">Team Colosseum</div>
+        <a class="c-link" href="mailto:contact@colosseumconsulting.com">contact@colosseumconsulting.com</a>
+        <a class="c-link" href="tel:+919619191849">+91 9619191849</a>
+      </div>
+      <div>
+        <div class="c-label">Website</div>
+        <div class="c-text" style="margin-top: 4px;">www.colosseumconsulting.com</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
